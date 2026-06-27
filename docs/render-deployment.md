@@ -69,6 +69,14 @@ Health:
 GET https://<render-url>/health
 ```
 
+Root URL:
+
+```http
+GET https://<render-url>/
+```
+
+The root URL now returns a small JSON status response instead of a 404, so the browser view feels clean and the API still keeps `/health` for monitoring.
+
 Register:
 
 ```http
