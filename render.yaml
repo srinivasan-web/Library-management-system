@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: library-management-system
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 1d
+      - key: BCRYPT_SALT_ROUNDS
+        value: "12"
+      - key: DEFAULT_BORROW_LIMIT
+        value: "5"
+      - key: DAILY_FINE_RATE
+        value: "5"
